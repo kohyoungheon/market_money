@@ -47,6 +47,7 @@ group :development, :test do
   gem 'coderay'
   gem 'capybara'
   gem 'shoulda-matchers'
+  gem 'jsonapi-serializer'
 end
 
 group :development do
