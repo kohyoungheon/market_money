@@ -48,6 +48,8 @@ group :development, :test do
   gem 'capybara'
   gem 'shoulda-matchers'
   gem 'jsonapi-serializer'
+  gem 'figaro'
+  gem 'faraday'
 end
 
 group :development do

@@ -12,12 +12,13 @@ describe "Market Vendor API" do
         })
       headers = {"CONTENT_TYPE" => "application/json"}
 
-      post "/api/v0/market_vendors", headers: headers, params: JSON.generate(vendor: market_vendor_params)
+      post "/api/v0/market_vendors", headers: headers, params: JSON.generate(market_vendor_params)
       created_market_vendor = MarketVendor.last
 
       expect(response).to be_successful
       expect(created_market_vendor.market_id).to eq(market.id)
       expect(created_market_vendor.vendor_id).to eq(vendor.id)
+  
     end
 
     describe "sad path" do
@@ -32,7 +33,7 @@ describe "Market Vendor API" do
 
         headers = {"CONTENT_TYPE" => "application/json"}
 
-        post "/api/v0/market_vendors", headers: headers, params: JSON.generate(vendor: market_vendor_params)
+        post "/api/v0/market_vendors", headers: headers, params: JSON.generate(market_vendor_params)
         error = JSON.parse(response.body, symbolize_names: true)
 
       
@@ -52,7 +53,7 @@ describe "Market Vendor API" do
           "vendor_id": "#{vendor.id}"
           })
         headers = {"CONTENT_TYPE" => "application/json"}
-        post "/api/v0/market_vendors", headers: headers, params: JSON.generate(vendor: market_vendor_params)
+        post "/api/v0/market_vendors", headers: headers, params: JSON.generate(market_vendor_params)
 
         error = JSON.parse(response.body, symbolize_names: true)
 
@@ -79,7 +80,7 @@ describe "Market Vendor API" do
 
       headers = {"CONTENT_TYPE" => "application/json"}
 
-      delete '/api/v0/market_vendors', headers: headers, params: JSON.generate(vendor: market_vendor_params)
+      delete '/api/v0/market_vendors', headers: headers, params: JSON.generate(market_vendor_params)
 
       expect(response).to be_successful
       expect(MarketVendor.last).to eq(nil)
@@ -96,7 +97,7 @@ describe "Market Vendor API" do
         })
       headers = {"CONTENT_TYPE" => "application/json"}
 
-      delete '/api/v0/market_vendors', headers: headers, params: JSON.generate(vendor: market_vendor_params)
+      delete '/api/v0/market_vendors', headers: headers, params: JSON.generate(market_vendor_params)
       error = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to_not(be_successful)

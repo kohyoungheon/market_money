@@ -69,4 +69,14 @@ class ErrorSerializer
                       ]
             }
   end
+
+  def invalid_params_error
+   json = {
+      "errors": [
+          {
+              "detail": "Invalid set of parameters. Please provide a valid set of parameters to perform a search with this endpoint."
+          }
+                ]
+          }
+  end
 end

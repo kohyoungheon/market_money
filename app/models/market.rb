@@ -11,5 +11,12 @@ class Market < ApplicationRecord
   validates :lat, presence: true
   validates :lon, presence: true
 
-  
+  def self.search_by_params(params)
+    markets = Market.all
+    markets = markets.where(state: params[:state]) if params[:state]
+    markets = markets.where(name: params[:name]) if params[:name]
+    markets = markets.where(city: params[:city]) if params[:city]
+    markets
+  end
+
 end
