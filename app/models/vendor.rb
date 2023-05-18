@@ -6,14 +6,5 @@ class Vendor < ApplicationRecord
   validates :description, presence: true
   validates :contact_name, presence: true
   validates :contact_phone, presence: true
-  validate :credit_accepted_boolean
-
-  private
-
-  def credit_accepted_boolean
-    unless credit_accepted == true || credit_accepted == false || credit_accepted.nil?
-      errors.add(:credit_accepted, "must be a boolean")
-    end
-  end
-
+  validates_inclusion_of :credit_accepted, in: [true, false], message: "must be a boolean"
 end
