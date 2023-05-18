@@ -190,9 +190,32 @@ describe "Vendor API" do
         expect(error[:errors][0][:detail]).to be_an(String)
         expect(error[:errors][0][:detail]).to eq("Name can't be blank, Contact name can't be blank, and Credit accepted must be a boolean")
       end
-
     end
   end
 
+  describe "7. Delete a Vendor" do
+    it "happy path" do
+      vendor = create(:vendor)
+
+      expect(Vendor.count).to eq(1)
+
+      delete "/api/v0/vendors/#{vendor.id}"
+
+      expect(response).to be_successful
+      expect(Vendor.count).to eq(0)
+      expect{Vendor.find(vendor.id)}.to raise_error(ActiveRecord::RecordNotFound)
+    end
+
+    it "sad path" do
+      delete "/api/v0/vendors/99999999"
+      error = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to_not(be_successful)
+
+      expect(error[:errors][0]).to have_key(:detail)
+      expect(error[:errors][0][:detail]).to be_an(String)
+      expect(error[:errors][0][:detail]).to eq("Couldn't find Vendor with 'id'=99999999")
+    end
+  end
 
 end

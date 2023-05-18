@@ -36,6 +36,15 @@ class Api::V0::VendorsController < ApplicationController
       render json: ErrorSerializer.new(vendor).vendor_error, status: :bad_request
     end
   end
+
+  def destroy
+    vendor = Vendor.find_by(id: params[:id])
+    if vendor.nil?
+      render json: ErrorSerializer.new(vendor).vendor_show_error(params[:id]), status: :not_found
+    else
+      render json: VendorSerializer.new(vendor.destroy), status: :no_content
+    end
+  end
   
   private
   
