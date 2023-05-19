@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.tomtom.com/search/2/categorySearch/atm.json?key=DONT_SHARE_MY_SECRET_KEY&lat=37.583311&lon=-79.048573
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.4
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 19 May 2023 02:38:00 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Origin:
+      - "*"
+      Tracking-Id:
+      - e7a881a1-5951-4058-83b4-628803746ca2
+      Access-Control-Expose-Headers:
+      - Tracking-ID
+      X-Apigee.target-Latency:
+      - '12'
+      X-Envoy-Upstream-Service-Time:
+      - '16'
+      Server:
+      - tomtom
+      X-Tomtom-Processed-By:
+      - westus2
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"summary":{"query":"atm","queryType":"NON_NEAR","queryTime":9,"numResults":10,"offset":0,"totalResults":96,"fuzzyLevel":1,"geoBias":{"lat":37.583311,"lon":-79.048573},"geobiasCountry":"US"},"results":[{"type":"POI","id":"loJsAe-tn1ML6_DGBTcRww","score":2.8319123882,"dist":438.497338,"info":"search:ta:840519002452165-US","poi":{"name":"Bank
+        Of The James","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"164","streetName":"South Main Street","municipality":"Amherst","countrySecondarySubdivision":"Amherst","countrySubdivision":"VA","countrySubdivisionName":"Virginia","postalCode":"24521","extendedPostalCode":"24521-2642","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"164 South Main Street,
+        Amherst, VA 24521","localName":"Amherst"},"position":{"lat":37.586297,"lon":-79.051824},"viewport":{"topLeftPoint":{"lat":37.5872,"lon":-79.05296},"btmRightPoint":{"lat":37.5854,"lon":-79.05069}},"entryPoints":[{"type":"main","position":{"lat":37.58619,"lon":-79.05163}}]},{"type":"POI","id":"QYZ1UScWfGxP6CVojMGYSQ","score":2.8318809169,"dist":529.992583,"info":"search:ta:840519002363168-US","poi":{"name":"First
+        National Bank","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"130","streetName":"South Main Street","municipality":"Amherst","countrySecondarySubdivision":"Amherst","countrySubdivision":"VA","countrySubdivisionName":"Virginia","postalCode":"24521","extendedPostalCode":"24521-2642","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"130 South Main Street,
+        Amherst, VA 24521","localName":"Amherst"},"position":{"lat":37.587447,"lon":-79.051562},"viewport":{"topLeftPoint":{"lat":37.58835,"lon":-79.0527},"btmRightPoint":{"lat":37.58655,"lon":-79.05043}},"entryPoints":[{"type":"main","position":{"lat":37.58723,"lon":-79.05111}}]},{"type":"POI","id":"OeaRb5zddrxNvhN8NikjPA","score":2.8318793434,"dist":534.73177,"info":"search:ta:840519002353805-US","poi":{"name":"Lynk
+        Systems","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"100","streetName":"North Main Street","municipality":"Amherst","countrySecondarySubdivision":"Amherst","countrySubdivision":"VA","countrySubdivisionName":"Virginia","postalCode":"24521","extendedPostalCode":"24521-3010","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"100 North Main Street,
+        Amherst, VA 24521","localName":"Amherst"},"position":{"lat":37.588099,"lon":-79.049139},"viewport":{"topLeftPoint":{"lat":37.589,"lon":-79.05027},"btmRightPoint":{"lat":37.5872,"lon":-79.048}},"entryPoints":[{"type":"main","position":{"lat":37.58835,"lon":-79.04925}}]},{"type":"POI","id":"xBk7Aq_vlkYZDVBsCcDpzg","score":2.8318581003,"dist":587.375917,"info":"search:ta:840519002399794-US","poi":{"name":"Metabank","categorySet":[{"id":7397}],"categories":["cash
+        dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"102","streetName":"Lexington Turnpike","municipality":"Amherst","countrySecondarySubdivision":"Amherst","countrySubdivision":"VA","countrySubdivisionName":"Virginia","postalCode":"24521","extendedPostalCode":"24521-2930","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"102 Lexington Turnpike,
+        Amherst, VA 24521","localName":"Amherst"},"position":{"lat":37.588538,"lon":-79.049538},"viewport":{"topLeftPoint":{"lat":37.58944,"lon":-79.05067},"btmRightPoint":{"lat":37.58764,"lon":-79.0484}},"entryPoints":[{"type":"main","position":{"lat":37.58845,"lon":-79.05007}}]},{"type":"POI","id":"Guh2KmKrpJGbGl6ly2-02A","score":2.8318515438,"dist":602.462754,"info":"search:ta:840519002406296-US","poi":{"name":"Columbus
+        Data Services","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"112","streetName":"South Main Street","municipality":"Amherst","countrySecondarySubdivision":"Amherst","countrySubdivision":"VA","countrySubdivisionName":"Virginia","postalCode":"24521","extendedPostalCode":"24521-3201","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"112 South Main Street,
+        Amherst, VA 24521","localName":"Amherst"},"position":{"lat":37.588468,"lon":-79.050671},"viewport":{"topLeftPoint":{"lat":37.58937,"lon":-79.05181},"btmRightPoint":{"lat":37.58757,"lon":-79.04954}},"entryPoints":[{"type":"main","position":{"lat":37.58807,"lon":-79.05028}}]},{"type":"POI","id":"WgEVrvo06vSVOTxHKFd32g","score":2.8294872659,"dist":2652.891129,"info":"search:ta:840517000000745-US","poi":{"name":"Metabank","categorySet":[{"id":7397}],"categories":["cash
+        dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetName":"South Amherst Highway","municipality":"Amherst","countrySecondarySubdivision":"Amherst","countrySubdivision":"VA","countrySubdivisionName":"Virginia","postalCode":"24521","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"South Amherst Highway,
+        Amherst, VA 24521","localName":"Amherst"},"position":{"lat":37.563072,"lon":-79.064512},"viewport":{"topLeftPoint":{"lat":37.56397,"lon":-79.06565},"btmRightPoint":{"lat":37.56217,"lon":-79.06338}},"entryPoints":[{"type":"main","position":{"lat":37.56307,"lon":-79.06451}}]},{"type":"POI","id":"WAgc0SPLcksh9MU2trpZeg","score":2.8255955832,"dist":4254.269475,"info":"search:ta:840519002766467-US","poi":{"name":"Metabank","categorySet":[{"id":7397}],"categories":["cash
+        dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"134","streetName":"Chapel Road","municipality":"Amherst","countrySecondarySubdivision":"Amherst","countrySubdivision":"VA","countrySubdivisionName":"Virginia","postalCode":"24595","extendedPostalCode":"24595-9997","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"134 Chapel Road, Sweet
+        Briar, VA 24595","localName":"Sweet Briar"},"position":{"lat":37.554647,"lon":-79.080544},"viewport":{"topLeftPoint":{"lat":37.55555,"lon":-79.08168},"btmRightPoint":{"lat":37.55375,"lon":-79.07941}},"entryPoints":[{"type":"main","position":{"lat":37.55482,"lon":-79.07948}}]},{"type":"POI","id":"kvRHo99J9YfL_5_RcC9Yuw","score":2.8233970539,"dist":4938.396358,"info":"search:ta:840519002857192-US","poi":{"name":"ATM","categorySet":[{"id":7397}],"categories":["cash
+        dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"1477","streetName":"North Amherst
+        Highway","municipality":"Amherst","countrySecondarySubdivision":"Amherst","countrySubdivision":"VA","countrySubdivisionName":"Virginia","postalCode":"24521","extendedPostalCode":"24521-4711","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"1477 North Amherst Highway,
+        Amherst, VA 24521","localName":"Amherst"},"position":{"lat":37.619173,"lon":-79.015506},"viewport":{"topLeftPoint":{"lat":37.62007,"lon":-79.01664},"btmRightPoint":{"lat":37.61827,"lon":-79.01437}},"entryPoints":[{"type":"main","position":{"lat":37.61912,"lon":-79.01536}}]},{"type":"POI","id":"mvBViu1ZKvcY3xNK5uzcqg","score":2.8228751556,"dist":5087.74153,"info":"search:ta:840519002884023-US","poi":{"name":"Pueblo
+        Bank And Trust Company","categorySet":[{"id":7397}],"categories":["cash dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"1425","streetName":"North Amherst
+        Highway","municipality":"Amherst","countrySecondarySubdivision":"Amherst","countrySubdivision":"VA","countrySubdivisionName":"Virginia","postalCode":"24521","extendedPostalCode":"24521-4711","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"1425 North Amherst Highway,
+        Amherst, VA 24521","localName":"Amherst"},"position":{"lat":37.620724,"lon":-79.015328},"viewport":{"topLeftPoint":{"lat":37.62162,"lon":-79.01646},"btmRightPoint":{"lat":37.61982,"lon":-79.01419}},"entryPoints":[{"type":"main","position":{"lat":37.62039,"lon":-79.01461}}]},{"type":"POI","id":"sMIkWLcriW-TwvE5zn_xdA","score":2.8144127979,"dist":7099.516752,"info":"search:ta:840519002382481-US","poi":{"name":"Metabank","categorySet":[{"id":7397}],"categories":["cash
+        dispenser"],"classifications":[{"code":"CASH_DISPENSER","names":[{"nameLocale":"en-US","name":"cash
+        dispenser"}]}]},"address":{"streetNumber":"1869","streetName":"Lexington Turnpike","municipality":"Amherst","countrySecondarySubdivision":"Amherst","countrySubdivision":"VA","countrySubdivisionName":"Virginia","postalCode":"24521","extendedPostalCode":"24521-3590","countryCode":"US","country":"United
+        States","countryCodeISO3":"USA","freeformAddress":"1869 Lexington Turnpike,
+        Amherst, VA 24521","localName":"Amherst"},"position":{"lat":37.622981,"lon":-79.111719},"viewport":{"topLeftPoint":{"lat":37.62388,"lon":-79.11285},"btmRightPoint":{"lat":37.62208,"lon":-79.11058}},"entryPoints":[{"type":"main","position":{"lat":37.62319,"lon":-79.11167}}]}]}'
+  recorded_at: Fri, 19 May 2023 02:38:00 GMT
+recorded_with: VCR 6.1.0
