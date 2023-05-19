@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe AtmService do
   describe "instance methods" do
-    it "get_nearest_atms" do
+    it "get_nearest_atms", :vcr do
       market_1 = Market.create(name: "Denver Market", street: "123 Market St", city: "Denver", county: "Denver", state: "Colorado", zip: "80202", lat: "37.583311", lon: "-79.048573")
       atms = AtmService.new.get_nearest_atms(market_1)
 

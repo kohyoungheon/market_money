@@ -199,11 +199,12 @@ describe "Market API" do
   end
 
   describe "11. Get Cash Dispensers Near a Market" do
-    market_1 = Market.create(name: "Denver Market", street: "123 Market St", city: "Denver", county: "Denver", state: "Colorado", zip: "80202", lat: "37.583311", lon: "-79.048573")
+    market_1 = Market.create(name: "Denver Market", street: "123 Market St", city: "Denver", county: "Denver", state: "Colorado", zip: "80202", lat: "35.07904", lon: "-106.60068")
 
     it "happy path" do
-
-      get "/api/v0/markets/#{market_1.id}/nearest_atms"
+      VCR.use_cassette('nearest_atms') do
+        get "/api/v0/markets/#{market_1.id}/nearest_atms"
+      end
 
       atms = JSON.parse(response.body, symbolize_names: true)
 

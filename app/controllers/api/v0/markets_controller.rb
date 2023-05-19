@@ -13,6 +13,7 @@ class Api::V0::MarketsController < ApplicationController
   end
 
   def search
+    
     state = params[:state]
     city = params[:city]
     name = params[:name]
