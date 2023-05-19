@@ -16,6 +16,8 @@ describe "Market Vendor API" do
       created_market_vendor = MarketVendor.last
 
       expect(response).to be_successful
+      expect(response.status).to eq(201)
+
       expect(created_market_vendor.market_id).to eq(market.id)
       expect(created_market_vendor.vendor_id).to eq(vendor.id)
   
@@ -38,6 +40,8 @@ describe "Market Vendor API" do
 
       
         expect(response).to_not(be_successful)
+        expect(response.status).to eq(404)
+
         expect(error[:errors][0]).to have_key(:detail)
         expect(error[:errors][0][:detail]).to be_an(String)
         expect(error[:errors][0][:detail]).to eq("Validation failed: Market must exist")
@@ -56,6 +60,7 @@ describe "Market Vendor API" do
         post "/api/v0/market_vendors", headers: headers, params: JSON.generate(market_vendor_params)
 
         error = JSON.parse(response.body, symbolize_names: true)
+        expect(response.status).to eq(422)
 
         expect(response).to_not(be_successful)
         expect(error[:errors][0]).to have_key(:detail)
@@ -83,6 +88,8 @@ describe "Market Vendor API" do
       delete '/api/v0/market_vendors', headers: headers, params: JSON.generate(market_vendor_params)
 
       expect(response).to be_successful
+      expect(response.status).to eq(204)
+
       expect(MarketVendor.last).to eq(nil)
     end
 
@@ -101,6 +108,7 @@ describe "Market Vendor API" do
       error = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to_not(be_successful)
+      expect(response.status).to eq(404)
   
       expect(error[:errors][0]).to have_key(:detail)
       expect(error[:errors][0][:detail]).to be_an(String)

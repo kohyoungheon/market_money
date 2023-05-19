@@ -7,6 +7,8 @@ describe "Market API" do
       get '/api/v0/markets'
   
       expect(response).to be_successful
+      expect(response.status).to eq(200)
+
       markets = JSON.parse(response.body, symbolize_names: true)
   
       # expect(markets[:data].count).to eq(3)
@@ -52,6 +54,7 @@ describe "Market API" do
       market = JSON.parse(response.body, symbolize_names: true)
   
       expect(response).to be_successful
+      expect(response.status).to eq(200)
 
       expect(market[:data]).to have_key(:id)
       expect(market[:data][:id]).to be_an(String)
@@ -107,6 +110,7 @@ describe "Market API" do
       error = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to_not(be_successful)
+      expect(response.status).to eq(404)
 
       expect(error[:errors][0]).to have_key(:detail)
       expect(error[:errors][0][:detail]).to be_an(String)
@@ -123,6 +127,7 @@ describe "Market API" do
       get '/api/v0/markets/search?city=Albuquerque&state=New Mexico&name=Nob hill'
 
       expect(response).to be_successful
+      expect(response.status).to eq(200)
 
       market = JSON.parse(response.body, symbolize_names: true)
   
@@ -181,6 +186,8 @@ describe "Market API" do
   
         error = JSON.parse(response.body, symbolize_names: true)
         expect(response).to_not be_successful
+        expect(response.status).to eq(422)
+        
         expect(error[:errors][0]).to have_key(:detail)
         expect(error[:errors][0][:detail]).to be_an(String)
         expect(error[:errors][0][:detail]).to eq("Invalid set of parameters. Please provide a valid set of parameters to perform a search with this endpoint.")
@@ -207,6 +214,7 @@ describe "Market API" do
       end
 
       atms = JSON.parse(response.body, symbolize_names: true)
+      expect(response).to be_successful
 
       expect(atms).to have_key(:data)
       expect(atms[:data][0][:id]).to be(nil)
@@ -238,6 +246,8 @@ describe "Market API" do
       error = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to_not be_successful
+      expect(response.status).to eq(404)
+
       expect(error[:errors][0]).to have_key(:detail)
       expect(error[:errors][0][:detail]).to be_an(String)
       expect(error[:errors][0][:detail]).to eq("Couldn't find Market with 'id'=999999999999")

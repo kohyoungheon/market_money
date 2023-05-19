@@ -13,6 +13,8 @@ describe "Vendor API" do
       vendors = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to be_successful
+      expect(response.status).to eq(200)
+
       expect(vendors[:data].count).to eq(2)
 
       vendors.each do |vendor|
@@ -39,6 +41,7 @@ describe "Vendor API" do
       error = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to_not(be_successful)
+      expect(response.status).to eq(404)
 
       expect(error[:errors][0]).to have_key(:detail)
       expect(error[:errors][0][:detail]).to be_an(String)
@@ -52,6 +55,7 @@ describe "Vendor API" do
       get "/api/v0/vendors/#{vendor.id}"
       parsed = JSON.parse(response.body, symbolize_names: true)
       expect(response).to be_successful
+      expect(response.status).to eq(200)
 
       expect(parsed[:data]).to have_key(:id)
       expect(parsed[:data][:id]).to be_an(String)
@@ -90,6 +94,7 @@ describe "Vendor API" do
       error = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to_not(be_successful)
+      expect(response.status).to eq(404)
 
       expect(error[:errors][0]).to have_key(:detail)
       expect(error[:errors][0][:detail]).to be_an(String)
@@ -112,6 +117,7 @@ describe "Vendor API" do
       created_vendor = Vendor.last
 
       expect(response).to be_successful
+      expect(response.status).to eq(201)
 
       expect(created_vendor.name).to eq(vendor_params[:name])
       expect(created_vendor.description).to eq(vendor_params[:description])
@@ -136,6 +142,8 @@ describe "Vendor API" do
 
       
       expect(response).to_not(be_successful)
+      expect(response.status).to eq(400)
+
       expect(error[:errors][0]).to have_key(:detail)
       expect(error[:errors][0][:detail]).to be_an(String)
       expect(error[:errors][0][:detail]).to eq("Name can't be blank, Description can't be blank, Contact name can't be blank, Contact phone can't be blank, and Credit accepted must be a boolean")
@@ -154,6 +162,8 @@ describe "Vendor API" do
 
       vendor_1.reload
       expect(response).to be_successful
+      expect(response.status).to eq(200)
+
       expect(vendor_1.name).to_not eq(previous_name)
       expect(vendor_1.contact_name).to_not eq(previous_contact_name)
       expect(vendor_1.name).to eq("World's Best Vendor")
@@ -168,6 +178,7 @@ describe "Vendor API" do
         error = JSON.parse(response.body, symbolize_names: true)
 
         expect(response).to_not(be_successful)
+        expect(response.status).to eq(404)
 
         expect(error[:errors][0]).to have_key(:detail)
         expect(error[:errors][0][:detail]).to be_an(String)
@@ -186,6 +197,8 @@ describe "Vendor API" do
         error = JSON.parse(response.body, symbolize_names: true)
 
         expect(response).to_not(be_successful)
+        expect(response.status).to eq(400)
+
         expect(error[:errors][0]).to have_key(:detail)
         expect(error[:errors][0][:detail]).to be_an(String)
         expect(error[:errors][0][:detail]).to eq("Name can't be blank, Contact name can't be blank, and Credit accepted must be a boolean")
@@ -202,6 +215,8 @@ describe "Vendor API" do
       delete "/api/v0/vendors/#{vendor.id}"
 
       expect(response).to be_successful
+      expect(response.status).to eq(204)
+
       expect(Vendor.count).to eq(0)
       expect{Vendor.find(vendor.id)}.to raise_error(ActiveRecord::RecordNotFound)
     end
@@ -211,6 +226,7 @@ describe "Vendor API" do
       error = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to_not(be_successful)
+      expect(response.status).to eq(404)
 
       expect(error[:errors][0]).to have_key(:detail)
       expect(error[:errors][0][:detail]).to be_an(String)
