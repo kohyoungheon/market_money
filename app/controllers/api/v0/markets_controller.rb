@@ -13,21 +13,22 @@ class Api::V0::MarketsController < ApplicationController
   end
 
   def search
-    if params[:state].nil? && params[:city].nil? && params[:name].nil?
+    state = params[:state]
+    city = params[:city]
+    name = params[:name]
+    
+    if state.nil? && city.nil? && name.nil?
       render json: ErrorSerializer.new(params).invalid_params_error, status: :unprocessable_entity
       return
     end
-  
-    if params[:city].present? && params[:name].nil? && params[:state].nil?
+    if city.present? && name.nil? && state.nil?
       render json: ErrorSerializer.new(params).invalid_params_error, status: :unprocessable_entity
       return
     end
-  
-    if params[:city].present? && params[:name].present? && params[:state].nil?
+    if city.present? && name.present? && state.nil?
       render json: ErrorSerializer.new(params).invalid_params_error, status: :unprocessable_entity
       return
     end
-  
     markets = Market.search_by_params(params)
     render json: MarketSerializer.new(markets), status: :ok
   end
